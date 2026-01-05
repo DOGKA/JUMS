@@ -194,6 +194,80 @@ tbody tr.highlight td:first-child .feat-name {
   letter-spacing: 0.04em;
 }
 
+/* Card Grid Buttons for Price Details */
+.price-detail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.price-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.price-detail-btn.setup {
+  background: rgba(138,164,255,0.12);
+  border-color: rgba(138,164,255,0.35);
+  color: #a8baff;
+}
+
+.price-detail-btn.yearly {
+  background: rgba(255,193,7,0.1);
+  border-color: rgba(255,193,7,0.3);
+  color: #ffc107;
+}
+
+.price-detail-btn.free {
+  background: rgba(32,201,151,0.12);
+  border-color: rgba(32,201,151,0.35);
+  color: #20c997;
+}
+
+.price-detail-btn.negative {
+  background: rgba(255,92,124,0.1);
+  border-color: rgba(255,92,124,0.25);
+  color: #ff8a9e;
+}
+
+.price-detail-btn .icon {
+  font-size: 12px;
+}
+
+.savings-badge-money {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(32,201,151,0.2) 0%, rgba(32,201,151,0.1) 100%);
+  border: 1px solid rgba(32,201,151,0.5);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #20c997;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.15);
+}
+
+.savings-badge-money .amount {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.savings-badge-money .icon {
+  font-size: 14px;
+}
+
 td {
   padding: 18px 20px;
   vertical-align: middle;
@@ -562,6 +636,37 @@ td:nth-child(3) {
     padding: 4px 8px;
   }
   
+  .price-detail-grid {
+    gap: 4px;
+    margin-top: 6px;
+  }
+  
+  .price-detail-btn {
+    padding: 4px 6px;
+    font-size: 8px;
+    border-radius: 6px;
+    gap: 3px;
+  }
+  
+  .price-detail-btn .icon {
+    font-size: 9px;
+  }
+  
+  .savings-badge-money {
+    padding: 5px 8px;
+    font-size: 9px;
+    margin-top: 6px;
+    gap: 4px;
+  }
+  
+  .savings-badge-money .amount {
+    font-size: 11px;
+  }
+  
+  .savings-badge-money .icon {
+    font-size: 10px;
+  }
+  
   .footer {
     padding: 16px;
     margin-top: 20px;
@@ -633,17 +738,19 @@ td:nth-child(3) {
           <td>
             <div class="price-cell">
               <span class="price-main negative">~$2,000/yil</span>
-              <div class="price-sub">
-                <span>+ KDV / Her yil tekrar</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn negative"><span class="icon">↻</span> Her yil tekrar</span>
+                <span class="price-detail-btn negative"><span class="icon">+</span> KDV</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$2,999</span>
-              <div class="price-sub">
-                <span>Tek seferlik + Sonra $399/yil</span>
-                <span>1. yil host ucretsiz</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn setup"><span class="icon">✦</span> Tek seferlik</span>
+                <span class="price-detail-btn yearly"><span class="icon">→</span> Sonra $399/yil</span>
+                <span class="price-detail-btn free"><span class="icon">🎁</span> 1. yil host ucretsiz</span>
               </div>
             </div>
           </td>
@@ -657,19 +764,20 @@ td:nth-child(3) {
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$4,000</span>
-              <div class="price-sub">
-                <span>~$2,000/yil × 2 yil</span>
-                <span>+ Her yil artan fiyatlar</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 2 yil</span>
+                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$3,398</span>
-              <div class="price-sub">
-                <span>$2,999 kurulum + $399×1 yil</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
+                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 1 yil</span>
               </div>
-              <span class="savings-badge">%15 TASARRUF</span>
+              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$602</span> TASARRUF</div>
             </div>
           </td>
         </tr>
@@ -682,19 +790,20 @@ td:nth-child(3) {
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$6,000</span>
-              <div class="price-sub">
-                <span>~$2,000/yil × 3 yil</span>
-                <span>+ Her yil artan fiyatlar</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 3 yil</span>
+                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$3,797</span>
-              <div class="price-sub">
-                <span>$2,999 kurulum + $399×2 yil</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
+                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 2 yil</span>
               </div>
-              <span class="savings-badge">%37 TASARRUF</span>
+              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$2,203</span> TASARRUF</div>
             </div>
           </td>
         </tr>
@@ -707,19 +816,20 @@ td:nth-child(3) {
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$10,000</span>
-              <div class="price-sub">
-                <span>~$2,000/yil × 5 yil</span>
-                <span>+ Her yil artan fiyatlar</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 5 yil</span>
+                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$4,595</span>
-              <div class="price-sub">
-                <span>$2,999 kurulum + $399×4 yil</span>
+              <div class="price-detail-grid">
+                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
+                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 4 yil</span>
               </div>
-              <span class="savings-badge">%54 TASARRUF</span>
+              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$5,405</span> TASARRUF</div>
             </div>
           </td>
         </tr>
@@ -1805,7 +1915,7 @@ td:nth-child(3) {
   <div class="footer">
     <h3>FusionMarkt Avantaji</h3>
     <p>
-      <strong>5 Yillik Tasarruf:</strong> %54 daha ucuz ($4,595 vs +$10,000)<br>
+      <strong>5 Yillik Tasarruf:</strong> $5,405 tasarruf ($4,595 vs +$10,000)<br>
       <strong>Tek Seferlik:</strong> $2,999 + KDV (ilk kurulum) → Sonraki yillar: $399 + KDV/yil (1. yil host ucretsiz)<br>
       <strong>Ozel Tema:</strong> Markaniza ozel sifirdan tasarim + frontend kodlama dahil<br>
       <strong>Frontend Kod Sahipligi:</strong> Frontend kodlarina tam sahiplik - dilediginiz degisikligi yapabilirsiniz<br>
