@@ -194,78 +194,67 @@ tbody tr.highlight td:first-child .feat-name {
   letter-spacing: 0.04em;
 }
 
-/* Card Grid Buttons for Price Details */
-.price-detail-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
-  justify-content: center;
-}
-
-.price-detail-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  border-radius: 8px;
+/* Minimal Price Details */
+.price-detail-list {
+  margin-top: 8px;
   font-size: 10px;
-  font-weight: 600;
-  border: 1px solid;
-  white-space: nowrap;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+  text-align: center;
 }
 
-.price-detail-btn.setup {
-  background: rgba(138,164,255,0.12);
-  border-color: rgba(138,164,255,0.35);
-  color: #a8baff;
+.price-detail-list .item {
+  display: block;
 }
 
-.price-detail-btn.yearly {
-  background: rgba(255,193,7,0.1);
-  border-color: rgba(255,193,7,0.3);
-  color: #ffc107;
-}
-
-.price-detail-btn.free {
-  background: rgba(32,201,151,0.12);
-  border-color: rgba(32,201,151,0.35);
+.price-detail-list .highlight {
   color: #20c997;
+  font-weight: 700;
 }
 
-.price-detail-btn.negative {
-  background: rgba(255,92,124,0.1);
-  border-color: rgba(255,92,124,0.25);
+.price-detail-list .warn {
   color: #ff8a9e;
 }
 
-.price-detail-btn .icon {
-  font-size: 12px;
-}
-
-.savings-badge-money {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+/* Savings Badge - Prominent */
+.savings-display {
   margin-top: 10px;
-  padding: 8px 14px;
-  background: linear-gradient(135deg, rgba(32,201,151,0.2) 0%, rgba(32,201,151,0.1) 100%);
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(32,201,151,0.25) 0%, rgba(32,201,151,0.1) 100%);
   border: 1px solid rgba(32,201,151,0.5);
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 800;
-  color: #20c997;
-  letter-spacing: 0.02em;
-  box-shadow: 0 2px 8px rgba(32,201,151,0.15);
+  border-radius: 8px;
+  text-align: center;
 }
 
-.savings-badge-money .amount {
-  font-size: 14px;
+.savings-display .amount {
+  display: block;
+  font-size: 16px;
   font-weight: 900;
+  color: #20c997;
+  letter-spacing: -0.02em;
 }
 
-.savings-badge-money .icon {
-  font-size: 14px;
+.savings-display .label {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(32,201,151,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Lifetime Badge */
+.lifetime-tag {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 8px;
+  background: rgba(138,164,255,0.15);
+  border: 1px solid rgba(138,164,255,0.3);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #a8baff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 td {
@@ -636,35 +625,29 @@ td:nth-child(3) {
     padding: 4px 8px;
   }
   
-  .price-detail-grid {
-    gap: 4px;
-    margin-top: 6px;
-  }
-  
-  .price-detail-btn {
-    padding: 4px 6px;
+  .price-detail-list {
+    margin-top: 5px;
     font-size: 8px;
-    border-radius: 6px;
-    gap: 3px;
+    line-height: 1.4;
   }
   
-  .price-detail-btn .icon {
-    font-size: 9px;
-  }
-  
-  .savings-badge-money {
-    padding: 5px 8px;
-    font-size: 9px;
+  .savings-display {
     margin-top: 6px;
-    gap: 4px;
+    padding: 5px 8px;
   }
   
-  .savings-badge-money .amount {
-    font-size: 11px;
+  .savings-display .amount {
+    font-size: 13px;
   }
   
-  .savings-badge-money .icon {
-    font-size: 10px;
+  .savings-display .label {
+    font-size: 7px;
+  }
+  
+  .lifetime-tag {
+    margin-top: 4px;
+    padding: 2px 6px;
+    font-size: 7px;
   }
   
   .footer {
@@ -732,25 +715,24 @@ td:nth-child(3) {
         <!-- YILLIK -->
         <tr>
           <td>
-            <span class="feat-name">Yillik Fiyatlandirma</span>
-            <span class="feat-desc">Her yil odenen tutar</span>
+            <span class="feat-name">Yillik Maliyet</span>
+            <span class="feat-desc">Yillik odeme</span>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main negative">~$2,000/yil</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn negative"><span class="icon">↻</span> Her yil tekrar</span>
-                <span class="price-detail-btn negative"><span class="icon">+</span> KDV</span>
+              <div class="price-detail-list">
+                <span class="item warn">Her yil tekrar</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$2,999</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn setup"><span class="icon">✦</span> Tek seferlik</span>
-                <span class="price-detail-btn yearly"><span class="icon">→</span> Sonra $399/yil</span>
-                <span class="price-detail-btn free"><span class="icon">🎁</span> 1. yil host ucretsiz</span>
+              <span class="lifetime-tag">Omur Boyu</span>
+              <div class="price-detail-list">
+                <span class="item highlight">1. yil: 1Gbit TR host ucretsiz</span>
+                <span class="item">Sonraki yillar: $399/yil</span>
               </div>
             </div>
           </td>
@@ -758,78 +740,81 @@ td:nth-child(3) {
         <!-- 2 YILLIK -->
         <tr>
           <td>
-            <span class="feat-name">2 Yillik Toplam Maliyet</span>
-            <span class="feat-desc">2 yillik donemde odenecek toplam tutar</span>
+            <span class="feat-name">2 Yil Toplam</span>
+            <span class="feat-desc">2 yillik maliyet</span>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$4,000</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 2 yil</span>
-                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
+              <div class="price-detail-list">
+                <span class="item warn">$2K × 2 + artan fiyat</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$3,398</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
-                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 1 yil</span>
+              <div class="price-detail-list">
+                <span class="item">$2,999 + $399</span>
               </div>
-              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$602</span> TASARRUF</div>
+              <div class="savings-display">
+                <span class="amount">$602</span>
+                <span class="label">Tasarruf</span>
+              </div>
             </div>
           </td>
         </tr>
         <!-- 3 YILLIK -->
         <tr>
           <td>
-            <span class="feat-name">3 Yillik Toplam Maliyet</span>
-            <span class="feat-desc">3 yillik donemde odenecek toplam tutar</span>
+            <span class="feat-name">3 Yil Toplam</span>
+            <span class="feat-desc">3 yillik maliyet</span>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$6,000</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 3 yil</span>
-                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
+              <div class="price-detail-list">
+                <span class="item warn">$2K × 3 + artan fiyat</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$3,797</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
-                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 2 yil</span>
+              <div class="price-detail-list">
+                <span class="item">$2,999 + $798</span>
               </div>
-              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$2,203</span> TASARRUF</div>
+              <div class="savings-display">
+                <span class="amount">$2,203</span>
+                <span class="label">Tasarruf</span>
+              </div>
             </div>
           </td>
         </tr>
         <!-- 5 YILLIK -->
         <tr>
           <td>
-            <span class="feat-name">5 Yillik Toplam Maliyet</span>
-            <span class="feat-desc">5 yillik donemde odenecek toplam tutar</span>
+            <span class="feat-name">5 Yil Toplam</span>
+            <span class="feat-desc">5 yillik maliyet</span>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main negative">+$10,000</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn negative"><span class="icon">×</span> $2,000 × 5 yil</span>
-                <span class="price-detail-btn negative"><span class="icon">↗</span> Artan fiyatlar</span>
+              <div class="price-detail-list">
+                <span class="item warn">$2K × 5 + artan fiyat</span>
               </div>
             </div>
           </td>
           <td>
             <div class="price-cell">
               <span class="price-main positive">$4,595</span>
-              <div class="price-detail-grid">
-                <span class="price-detail-btn setup"><span class="icon">✦</span> $2,999 kurulum</span>
-                <span class="price-detail-btn yearly"><span class="icon">+</span> $399 × 4 yil</span>
+              <div class="price-detail-list">
+                <span class="item">$2,999 + $1,596</span>
               </div>
-              <div class="savings-badge-money"><span class="icon">💰</span> <span class="amount">$5,405</span> TASARRUF</div>
+              <div class="savings-display">
+                <span class="amount">$5,405</span>
+                <span class="label">Tasarruf</span>
+              </div>
             </div>
           </td>
         </tr>
